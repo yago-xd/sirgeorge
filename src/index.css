@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #14304c;
+  --color-ink-soft: #4f6d89;
+  --color-ink-faint: #8ba5bd;
+  --color-lab-50: #f7fbfe;
+  --color-lab-100: #eef5fb;
+  --color-lab-200: #dce9f4;
+  --color-lab-300: #bed7ea;
+  --color-azure: #2e6fa3;
+  --color-azure-deep: #1f5684;
+  --color-azure-soft: #e4eef8;
+  --color-warm: #b4574e;
+  --color-warm-soft: #fbf2f0;
+  --color-moss: #2f8f5b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white font-sans text-ink antialiased;
+}
+
+sub,
+sup {
+  line-height: 0;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-xl bg-azure px-7 py-3.5 font-semibold text-white shadow-[0_14px_28px_-14px_rgba(46,111,163,0.75)] transition-all duration-200 hover:bg-azure-deep hover:shadow-[0_16px_30px_-14px_rgba(31,86,132,0.8)] active:translate-y-px;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-lab-300 bg-white px-5 py-3 font-medium text-ink-soft transition-all duration-200 hover:border-azure hover:text-azure active:translate-y-px;
+  }
+  .tool-btn {
+    @apply inline-flex min-w-10 select-none items-center justify-center rounded-lg border border-lab-200 bg-white px-2.5 py-2 text-sm font-semibold text-ink transition-all duration-150 hover:border-lab-300 hover:bg-lab-100 active:translate-y-px;
+  }
+  .tool-btn-on {
+    @apply border-azure bg-azure text-white shadow-[0_6px_14px_-8px_rgba(46,111,163,0.9)] hover:border-azure-deep hover:bg-azure-deep;
+  }
+  .group-label {
+    @apply mb-2 block text-[11px] font-semibold tracking-[0.16em] uppercase text-ink-faint;
+  }
+  .card {
+    @apply rounded-2xl border border-lab-200 bg-white shadow-[0_18px_40px_-30px_rgba(20,48,76,0.35)];
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.55s cubic-bezier(0.22, 0.8, 0.36, 1) both;
+}
+.rise-1 {
+  animation-delay: 0.08s;
+}
+.rise-2 {
+  animation-delay: 0.16s;
+}
+.rise-3 {
+  animation-delay: 0.24s;
+}
+.rise-4 {
+  animation-delay: 0.32s;
+}
+
+@keyframes blink {
+  0%,
+  55% {
+    opacity: 1;
+  }
+  56%,
+  100% {
+    opacity: 0.15;
+  }
+}
+.caret-bar {
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.pop-in {
+  animation: popIn 0.4s cubic-bezier(0.22, 0.8, 0.36, 1) both;
+}
